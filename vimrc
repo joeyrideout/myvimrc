@@ -1,4 +1,13 @@
-" from http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim
+" Install SuperTab for tab completion:
+" http://www.vim.org/scripts/script.php?script_id=1643
+"
+" Settings mostly from http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim
+"
+" Also added extra commands at the bottom for easier window-split navigation.
+" (Ctrl-Left, Down, Up, Right for window navigation, or Ctrl-H,J,K,L if you prefer)
+" Recall that :vsp FILENAME opens a vertical split, and :sp opens a horizontal one.
+" Note: You can tab-complete the filenames in your directory :)
+
 " reset to vim-defaults
 if &compatible          " only if not set before:
   set nocompatible      " use vim-defaults instead of vi-defaults (easier, more user friendly)
@@ -111,3 +120,17 @@ if has("autocmd")
     \ endif 
 
 endif " has("autocmd")
+
+" Aditional settings for window splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-Down> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-Up> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-Right> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-Left> <C-W><C-H>
+
+set splitbelow
+set splitright
+
