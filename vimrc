@@ -51,7 +51,7 @@ set confirm             " get a dialog when :q, :w, or :wq fails
 "set nobackup            " no backup~ files.
 set viminfo='20,\"500   " remember copy registers after quitting in the .viminfo file -- 20 jump links, regs up to 500 lines'
 set hidden              " remember undo after quitting
-set history=50          " keep 50 lines of command history
+set history=700         " keep 50 lines of command history
 set mouse=v             " use mouse in visual mode (not normal,insert,command,help mode
 
 
@@ -121,7 +121,7 @@ if has("autocmd")
 
 endif " has("autocmd")
 
-" Aditional settings for window splits
+" Additional settings for window splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-Down> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -130,6 +130,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-Right> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-Left> <C-W><C-H>
+
+" Additional settings for tabs
+nnoremap <A-Left> :tabprevious<CR>
+nnoremap <A-Right> :tabnext<CR>
 
 set splitbelow
 set splitright
