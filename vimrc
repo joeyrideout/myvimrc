@@ -130,11 +130,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-Right> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-Left> <C-W><C-H>
+set splitbelow
+set splitright
 
 " Additional settings for tabs
 nnoremap <A-Left> :tabprevious<CR>
 nnoremap <A-Right> :tabnext<CR>
-
-set splitbelow
-set splitright
 
