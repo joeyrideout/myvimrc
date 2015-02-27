@@ -49,11 +49,17 @@ set fileformat=unix     " file mode is unix
 set lazyredraw          " no redraws in macros
 set confirm             " get a dialog when :q, :w, or :wq fails
 "set nobackup            " no backup~ files.
-set viminfo='20,\"500   " remember copy registers after quitting in the .viminfo file -- 20 jump links, regs up to 500 lines'
 set hidden              " remember undo after quitting
 set history=700         " keep 50 lines of command history
 set mouse=v             " use mouse in visual mode (not normal,insert,command,help mode
 
+" Tell vim to remember certain things when we exit
+"  '10  :  marks will be remembered for up to 10 previously edited files
+"  "100 :  will save up to 100 lines for each register
+"  :20  :  up to 20 lines of command-line history will be remembered
+"  %    :  saves and restores the buffer list
+"  n... :  where to save the viminfo files
+set viminfo='20,\"500,:20,%,n~/.viminfo
 
 " color settings (if terminal/gui supports it)
 if &t_Co > 2 || has("gui_running")
@@ -72,6 +78,9 @@ set pastetoggle=<F11>
 " Use of the filetype plugins, auto completion and indentation support
 filetype plugin indent on
 
+" Pathogen (https://github.com/tpope/vim-pathogen)
+execute pathogen#infect()
+
 " file type specific settings
 if has("autocmd")
   " For debugging
@@ -79,6 +88,9 @@ if has("autocmd")
 
   " if bash is sh.
   let bash_is_sh=1
+
+  " remember cursor location
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
   " change to directory of current file automatically
   autocmd BufEnter * lcd %:p:h
@@ -94,7 +106,7 @@ if has("autocmd")
 
   augroup perl
     " reset (disable previous 'augroup perl' settings)
-    au!  
+    au!
 
     au BufReadPre,BufNewFile
     \ *.pl,*.pm
@@ -110,7 +122,6 @@ if has("autocmd")
     "   
   augroup END
 
-
   " Always jump to the last known cursor position. 
   " Don't do it when the position is invalid or when inside
   " an event handler (happens when dropping a file on gvim). 
@@ -118,6 +129,9 @@ if has("autocmd")
     \ if line("'\"") > 0 && line("'\"") <= line("$") | 
     \   exe "normal g`\"" | 
     \ endif 
+    
+  " Run vim-flake8 whenever we write a python file
+  autocmd BufWritePost *.py call Flake8() 
 
 endif " has("autocmd")
 
@@ -136,4 +150,8 @@ set splitright
 " Additional settings for tabs
 nnoremap <A-Left> :tabprevious<CR>
 nnoremap <A-Right> :tabnext<CR>
+
+" Set line length to highlight >80 column widths.
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
