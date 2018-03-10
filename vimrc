@@ -79,7 +79,7 @@ set pastetoggle=<F11>
 filetype plugin indent on
 
 " Pathogen (https://github.com/tpope/vim-pathogen)
-execute pathogen#infect()
+" execute pathogen#infect()
 
 " file type specific settings
 if has("autocmd")
