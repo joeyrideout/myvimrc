@@ -131,7 +131,7 @@ if has("autocmd")
     \ endif 
     
   " Run vim-flake8 whenever we write a python file
-  autocmd BufWritePost *.py call Flake8() 
+  " autocmd BufWritePost *.py call Flake8() 
 
 endif " has("autocmd")
 
