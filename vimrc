@@ -14,7 +14,7 @@ if &compatible          " only if not set before:
 endif
 
 " display settings
-set background=dark     " enable for dark terminals
+set background=light     " enable for dark terminals
 set nowrap              " dont wrap lines
 set scrolloff=2         " 2 lines above/below cursor when scrolling
 set number              " show line numbers
