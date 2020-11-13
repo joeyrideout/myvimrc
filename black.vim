@@ -13,16 +13,16 @@ if exists("syntax_on")
 endif
 let g:colors_name = "black"
 hi Normal		guifg=black	guibg=white	ctermfg=black	ctermbg=white
-hi NonText		guifg=black	ctermfg=black
+hi NonText		guifg=darkblue	ctermfg=darkblue
 hi comment		guifg=darkgrey		ctermfg=darkgrey	ctermbg=white	gui=bold 
-hi constant		guifg=black		ctermfg=black
+hi constant		guifg=darkred		ctermfg=darkred
 hi identifier	guifg=darkgrey		ctermfg=black
-hi statement	guifg=black		ctermfg=black	ctermbg=white	gui=none
+hi statement	guifg=darkblue		ctermfg=darkblue	ctermbg=white	gui=none
 hi preproc		guifg=darkblue		ctermfg=darkblue
 hi type			guifg=darkcyan	ctermfg=darkcyan	ctermbg=white
-hi special		guifg=black	ctermfg=black	ctermbg=white
+hi special		guifg=darkred	ctermfg=darkred	ctermbg=white
 hi Underlined	guifg=black		ctermfg=black	gui=underline	cterm=underline
-hi label		guifg=black	ctermfg=black
+hi label		guifg=darkblue	ctermfg=darkblue
 hi operator		guifg=darkred	gui=bold	ctermfg=darkred	ctermbg=white
 
 hi ErrorMsg		guifg=black	guibg=white	ctermfg=black
